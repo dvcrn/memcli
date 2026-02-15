@@ -1,3 +1,6 @@
+- Always run `mise build` after changing typescript files to check if build is working
+- Always run `mise format` to reformat the source code after making any changes to ts files
+- Always use proper types and avoid `unknown`
 
 Default to using Bun instead of Node.js.
 
