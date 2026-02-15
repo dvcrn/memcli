@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { Command } from "commander";
 import { coursesCommand } from "./src/commands/courses";
 import { courseByIdCommand, courseBySlugCommand } from "./src/commands/course";

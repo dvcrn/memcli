@@ -1,12 +1,24 @@
 {
 	"name": "memcli",
-	"module": "index.ts",
+	"version": "1.0.0",
+	"description": "CLI for Memrise teaching",
 	"type": "module",
-	"private": true,
-	"devDependencies": {
-		"@types/bun": "latest"
+	"bin": {
+		"memcli": "dist/index.js"
 	},
-	"peerDependencies": {
+	"main": "dist/index.js",
+	"files": [
+		"dist"
+	],
+	"repository": "dvcrn/memcli",
+	"license": "MIT",
+	"scripts": {
+		"build": "bun build ./index.ts --outfile ./dist/index.js --target node",
+		"check": "bunx tsc",
+		"prepublishOnly": "bun run check && bun run build"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
 		"typescript": "^5.9.3"
 	},
 	"dependencies": {
