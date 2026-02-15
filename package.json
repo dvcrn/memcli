@@ -1,10 +1,11 @@
 {
-	"name": "memcli",
+	"name": "memrise-cli",
 	"version": "1.0.0",
 	"description": "CLI for Memrise teaching",
 	"type": "module",
 	"bin": {
-		"memcli": "dist/index.js"
+		"memcli": "dist/index.js",
+		"memrise": "dist/index.js"
 	},
 	"main": "dist/index.js",
 	"files": [
