@@ -1,16 +1,22 @@
 import { Command } from "commander";
 import { createClient } from "../lib/client";
 import { printCourses } from "../lib/format";
+import { parseIntegerOption } from "../lib/utils";
 
 export function coursesCommand() {
 	return new Command("courses")
 		.alias("my-courses")
 		.description("List your teaching courses")
-		.option("--limit <number>", "Limit for courses", (v) => parseInt(v, 10), 9)
+		.option(
+			"--limit <number>",
+			"Limit for courses",
+			parseIntegerOption("--limit", { min: 1 }),
+			9,
+		)
 		.option(
 			"--offset <number>",
 			"Offset for courses",
-			(v) => parseInt(v, 10),
+			parseIntegerOption("--offset", { min: 0 }),
 			0,
 		)
 		.action(async (options, command) => {

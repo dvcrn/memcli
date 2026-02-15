@@ -13,7 +13,15 @@ export function parseColumns(
 	}
 
 	if (columnsJson) {
-		const parsed = JSON.parse(columnsJson);
+		let parsed: unknown;
+		try {
+			parsed = JSON.parse(columnsJson);
+		} catch (error) {
+			if (error instanceof Error) {
+				throw new Error(`Unable to parse --columns JSON: ${error.message}`);
+			}
+			throw new Error("Unable to parse --columns JSON.");
+		}
 		if (
 			parsed === null ||
 			Array.isArray(parsed) ||
@@ -32,4 +40,31 @@ export function parseColumns(
 	}
 
 	return columns;
+}
+
+export function parseIntegerOption(
+	optionName: string,
+	{ min }: { min?: number } = {},
+): (value: string) => number {
+	return (value: string): number => {
+		const normalized = value.trim();
+		if (!/^-?\d+$/.test(normalized)) {
+			throw new Error(
+				`Invalid value for ${optionName}: "${value}". Expected an integer.`,
+			);
+		}
+
+		const parsed = Number(normalized);
+		if (!Number.isSafeInteger(parsed)) {
+			throw new Error(
+				`Invalid value for ${optionName}: "${value}". Expected a safe integer.`,
+			);
+		}
+
+		if (min !== undefined && parsed < min) {
+			throw new Error(`${optionName} must be >= ${min}.`);
+		}
+
+		return parsed;
+	};
 }

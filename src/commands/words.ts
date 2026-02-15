@@ -1,23 +1,29 @@
 import { Command } from "commander";
 import { createClient } from "../lib/client";
 import { printWords } from "../lib/format";
+import { parseIntegerOption } from "../lib/utils";
 
 export function wordsCommand() {
 	return new Command("words")
 		.alias("items")
 		.description("Get words/items in a course or specific level")
 		.argument("<course-id>", "Course ID")
-		.option("--level <index>", "Level index (1-based)", (v) => parseInt(v, 10))
-		.option("--limit <number>", "Limit items", (v) => parseInt(v, 10))
+		.option(
+			"--level <index>",
+			"Level index (1-based)",
+			parseIntegerOption("--level", { min: 1 }),
+		)
+		.option(
+			"--limit <number>",
+			"Limit items",
+			parseIntegerOption("--limit", { min: 1 }),
+		)
 		.action(async (courseId, options, command) => {
 			const globalOptions = command.parent.opts();
 			const client = createClient({ ...globalOptions, ...options });
 
 			let response;
 			if (options.level !== undefined) {
-				if (options.level < 1) {
-					throw new Error("Level index must be >= 1");
-				}
 				// Convert 1-based user input to 0-based for library
 				response = await client.getLevelItems(
 					courseId,

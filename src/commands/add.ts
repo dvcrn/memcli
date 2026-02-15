@@ -1,7 +1,7 @@
 import { Command } from "commander";
 import { createClient } from "../lib/client";
 import { printAddThing } from "../lib/format";
-import { parseColumns } from "../lib/utils";
+import { parseColumns, parseIntegerOption } from "../lib/utils";
 
 export function addThingCourseCommand() {
 	return new Command("add-thing-course")
@@ -18,7 +18,12 @@ export function addThingCourseCommand() {
 			[],
 		)
 		.option("--columns <json>", "JSON map of column pairs")
-		.option("--level-index <number>", "Level index", (v) => parseInt(v, 10), 0)
+		.option(
+			"--level-index <number>",
+			"Level index",
+			parseIntegerOption("--level-index", { min: 0 }),
+			0,
+		)
 		.action(async (courseId, options, command) => {
 			const globalOptions = command.parent.opts();
 			const client = createClient({ ...globalOptions, ...options });
