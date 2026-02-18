@@ -11,6 +11,7 @@ import {
 	addThingCourseCommand,
 	addThingLevelCommand,
 } from "./src/commands/add";
+import { addLevelToCourseCommand } from "./src/commands/add-level";
 
 const program = new Command();
 
@@ -35,6 +36,7 @@ program.addCommand(getPoolCommand());
 program.addCommand(searchPoolCommand());
 program.addCommand(addThingCourseCommand());
 program.addCommand(addThingLevelCommand());
+program.addCommand(addLevelToCourseCommand());
 
 async function main() {
 	try {

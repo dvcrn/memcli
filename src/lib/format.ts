@@ -221,6 +221,23 @@ export function printPoolSearch(data: unknown) {
 	}
 }
 
+export function printAddLevel(data: unknown) {
+	if (!data || typeof data !== "object") {
+		console.log("No result returned.");
+		return;
+	}
+	const response = data as Record<string, unknown>;
+	console.log(`Success: ${String(response.success ?? false)}`);
+	if (response.level && typeof response.level === "object") {
+		const level = response.level as Record<string, unknown>;
+		console.log(`Level ID: ${String(level.id ?? "?")}`);
+		console.log(
+			`  index: ${String(level.index ?? "?")} | kind: ${String(level.kind ?? "?")} | pool: ${String(level.pool_id ?? "?")}`,
+		);
+		if (level.title) console.log(`  title: ${String(level.title)}`);
+	}
+}
+
 export function printAddThing(data: unknown) {
 	if (!data || typeof data !== "object") {
 		console.log("No result returned.");
