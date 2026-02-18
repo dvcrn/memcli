@@ -6,12 +6,10 @@
       "name": "memcli",
       "dependencies": {
         "commander": "^14.0.3",
-        "memrise": "0.2.0",
+        "memrise": "^0.3.0",
       },
       "devDependencies": {
         "@types/bun": "latest",
-      },
-      "peerDependencies": {
         "typescript": "^5.9.3",
       },
     },
@@ -65,7 +63,7 @@
 
     "math-intrinsics": ["math-intrinsics@1.1.0", "", {}, "sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g=="],
 
-    "memrise": ["memrise@0.2.0", "", { "dependencies": { "axios": "^1.13.2" } }, "sha512-Hio6teFRDJ545G+NwtgHmBRGX9E7cZ9Hgabbz8vY2+d905fUfIkXr15YxJKspxst8J1O1Iw8Qy45LFoq8HcxcQ=="],
+    "memrise": ["memrise@0.3.0", "", { "dependencies": { "axios": "^1.13.2" } }, "sha512-02p5DNW4ySaEIVCu84v3j6x2M0SuywOLe4p79CPrH89FR3Xu1slCqOvFG9qEcPJdIZAimOLHsVuX2N7wly0ycA=="],
 
     "mime-db": ["mime-db@1.52.0", "", {}, "sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg=="],
 
