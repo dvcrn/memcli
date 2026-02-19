@@ -49,6 +49,18 @@ memcli words 123456 --level 1 --limit 10
 memcli add-to-course 123456 --field "1=Hello" --field "2=Bonjour"
 ```
 
+**Rename a level:**
+
+```bash
+memcli rename-level 16267521 "02/19"
+```
+
+**Delete a level:**
+
+```bash
+memcli delete-level 16267524
+```
+
 **Search a pool for existing items:**
 
 ```bash
@@ -86,5 +98,7 @@ memcli courses --output json
   - `--level-index <n>` (default `0`)
 - `add-to-level <level-id>` – Add a thing to a specific level ID
   - `--field <key>=<value>` (repeatable)
+- `rename-level <level-id> <new-title>` – Rename a level
+- `delete-level <level-id>` – Delete a level
 
 You can also pass `--columns '{"1":"value"}'` as a JSON string instead of repeated `--field` flags.
