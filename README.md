@@ -23,6 +23,12 @@ export MEMRISE_CLIENT_ID="your_client_id"
 
 Alternatively, you can pass credentials explicitly with `--username` and `--password` flags.
 
+## Usage as agent skill
+
+- add `dvcrn/skills` as skill repository which should discover the `memrise` skill
+- or add the SKILL.md from this repo to your agent
+
+
 ## Examples
 
 **List your teaching courses:**
