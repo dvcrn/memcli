@@ -1,0 +1,4 @@
+interface:
+  display_name: "memcli"
+  short_description: "Use memcli for Memrise teaching course operations."
+  default_prompt: "Use the memcli skill to inspect or update Memrise teaching courses with the installed memcli or memrise CLI."

@@ -1,0 +1,38 @@
+{
+  "name": "dvcrn-memcli",
+  "owner": {
+    "name": "David Mohl",
+    "email": "git@d.sh"
+  },
+  "metadata": {
+    "description": "Claude plugin marketplace for memcli, a CLI for Memrise teaching workflows",
+    "version": "1.2.0",
+    "pluginRoot": "./.claude-plugin/plugins"
+  },
+  "plugins": [
+    {
+      "name": "memcli",
+      "source": "./.claude-plugin/plugins/memcli",
+      "description": "Use memcli to inspect and update Memrise teaching courses, levels, items, and pools",
+      "author": {
+        "name": "David Mohl",
+        "email": "git@d.sh"
+      },
+      "homepage": "https://github.com/dvcrn/memcli",
+      "repository": "https://github.com/dvcrn/memcli",
+      "license": "MIT",
+      "keywords": [
+        "memrise",
+        "cli",
+        "teaching",
+        "courses"
+      ],
+      "category": "education",
+      "tags": [
+        "memrise",
+        "courses",
+        "content-management"
+      ]
+    }
+  ]
+}

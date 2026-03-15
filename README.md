@@ -23,10 +23,39 @@ export MEMRISE_CLIENT_ID="your_client_id"
 
 Alternatively, you can pass credentials explicitly with `--username` and `--password` flags.
 
-## Usage as agent skill
+## Agent installation
 
-- add `dvcrn/skills` as skill repository which should discover the `memrise` skill
-- or add the SKILL.md from this repo to your agent
+### `npx skills`
+
+```bash
+npx skills add dvcrn/memcli --full-depth
+```
+
+Use `--list` first if you want to confirm discovery before installing:
+
+```bash
+npx skills add dvcrn/memcli --full-depth --list
+```
+
+### Claude marketplace CLI
+
+Add the marketplace from this repo, then install the bundled `memcli` plugin:
+
+```bash
+claude plugin marketplace add dvcrn/memcli
+claude plugin install memcli@dvcrn-memcli --scope user
+```
+
+If you already added the marketplace and want to retest packaging changes:
+
+```bash
+claude plugin marketplace update dvcrn-memcli
+claude plugin install memcli@dvcrn-memcli --scope user
+```
+
+### Claude UI
+
+Open Claude's plugin or marketplace UI, add or select the `dvcrn/memcli` marketplace, then install the `memcli` plugin.
 
 
 ## Examples
